@@ -3,20 +3,20 @@ vagrantfile-local:
     vm:
         box: puphpet/debian75-x64
         box_url: puphpet/debian75-x64
-        hostname: ''
+        hostname: 'elgg.local'
         memory: '1024'
         cpus: '2'
         chosen_provider: virtualbox
         network:
             private_network: 192.168.56.101
             forwarded_port:
-                o8tHa8HKplXU:
+                port_ssh:
                     host: '7764'
                     guest: '22'
-                YFBgZx6Y0LB4:
+                port_http:
                     host: '80'
                     guest: '80'
-                s09TfQy8ENPQ:
+                port_mailcatcher:
                     host: '1080'
                     guest: '1080'
         post_up_message: ''
@@ -112,7 +112,7 @@ nginx:
         proxy_buffer_size: 128k
         proxy_buffers: '4 256k'
     vhosts:
-        EjJU5EyDnwez:
+        elgg:
             server_name: elgg.local
             server_aliases:
                 - www.elgg.local
@@ -163,7 +163,7 @@ hhvm:
         error_reporting: '-1'
     timezone: null
 xdebug:
-    install: '1'
+    install: '0'
     settings:
         xdebug.default_enable: '1'
         xdebug.remote_autostart: '0'
@@ -186,7 +186,8 @@ nodejs:
     npm_packages: {  }
 python:
     install: '1'
-    packages: {  }
+    packages:
+        - Sphinx@1.2.2
     versions:
         gGxPDJ69IZov:
             version: ''

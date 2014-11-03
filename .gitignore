@@ -1,0 +1,7 @@
+# Environment
+.vagrant
+.idea
+
+# Following stuff is a local state
+html/adminer
+puphpet/files/dot/ssh
